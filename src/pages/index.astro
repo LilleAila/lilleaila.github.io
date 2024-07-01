@@ -1,0 +1,41 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Hello!</h1>
+      <p>
+        My name is <b>Olai</b>. I enjoy programming in my free time, and am
+        passionate about Linux, computers, and open source software.
+      </p>
+      <p>
+        My favorite technologies to use include <b>NixOS</b>, <b>Rust</b>, <b
+          >TypeScript</b
+        >
+        <b>LaTeX</b>, and more recently <b>Functional programming languages</b> such
+        as <b>Haskell</b> and <b>Nix</b>.
+      </p>
+      <p>
+        I love configuring my systems to work excactly how I want them to, using <b
+          >Linux</b
+        > to customize every aspect of my experience.
+      </p>
+      <p>
+        I am currently in school, and aspire to become a <i
+          ><b>software engineer</b></i
+        > in the future.
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>
