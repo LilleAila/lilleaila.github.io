@@ -1,0 +1,33 @@
+---
+// https://github.com/natemoo-re/astro-icon
+// https://icon-sets.iconify.design/?query=rss
+import { Icon } from "astro-icon/components";
+---
+
+<div {...Astro.props}>
+  <a href="/rss.xml" target="_blank">
+    <span class="sr-only">Get the RSS feed</span>
+    <Icon name="rss" class="social-icon" />
+  </a>
+  <a href="https://github.com/LilleAila" target="_blank">
+    <span class="sr-only">Check out my GitHub profile!</span>
+    <Icon name="github" class="social-icon" />
+  </a>
+</div>
+<style>
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  a {
+    display: flex;
+    color: var(--fg);
+    padding: 0.3em 0;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--fg-dark);
+  }
+</style>
