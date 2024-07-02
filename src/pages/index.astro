@@ -37,15 +37,11 @@ import PostList from "../components/PostList.astro";
       </p>
       <h2>Latest blog posts</h2>
       <PostList collection="blog" maxPosts={3} class="postList" />
-      <h2>Latest projects (TODO)</h2>
+      <h2>Latest projects</h2>
+      <PostList collection="projects" maxPosts={3} class="postList" />
     </main>
     <Footer />
     <style>
-      /*@media (min-width: 720px) {
-        .postList {
-          padding-left: 1.5em;
-        }
-      }*/
       .postList {
         border: 1px solid var(--bg-light);
         padding: 1em;

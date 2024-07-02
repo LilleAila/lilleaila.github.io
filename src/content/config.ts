@@ -11,7 +11,25 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(),
     //heroImage: z.string().optional(),
     tags: z.array(z.string()),
+    draft: z.boolean().optional(),
   }),
 });
 
-export const collections = { blog };
+const projects = defineCollection({
+  type: "content",
+  schema: z.object({
+    // Same as blog (i don't think it's possible to extend)
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    tags: z.array(z.string()),
+    draft: z.boolean().optional(),
+    // Extra values
+    //heroImage: z.string().optional(), // maybe later
+    repoUrl: z.string().optional(),
+    demoUrl: z.string().optional(),
+  }),
+});
+
+export const collections = { blog, projects };

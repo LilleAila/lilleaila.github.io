@@ -12,7 +12,7 @@ interface Props extends HTMLAttributes<"ul"> {
 
 const { collection, maxPosts } = Astro.props as Props;
 
-const posts = (await getCollection(collection))
+const posts = (await getCollection(collection, ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, maxPosts); // slice to undefined returns full array
 ---
@@ -21,7 +21,7 @@ const posts = (await getCollection(collection))
   {
     posts.map((post) => (
       <li class="post">
-        <a href={`/blog/${post.slug}/`}>
+        <a href={`/${collection}/${post.slug}/`}>
           <h4 class="title">{post.data.title}</h4>
           <p class="date">
             <FormattedDate date={post.data.pubDate} />

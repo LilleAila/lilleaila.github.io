@@ -1,0 +1,70 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BlogPost from "../../layouts/BlogPost.astro";
+import { Icon } from "astro-icon/components";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("projects");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"projects">;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data}>
+  <div class="source">
+    {
+      post.data.demoUrl && (
+        <a href={post.data.demoUrl}>
+          <Icon name="eye" class="source-icon" />
+          Demo
+        </a>
+      )
+    }
+    {
+      post.data.repoUrl && (
+        <a href={post.data.repoUrl}>
+          <Icon name="github" class="source-icon" />
+          View source
+        </a>
+      )
+    }
+  </div>
+  <Content />
+</BlogPost>
+<style lang="scss">
+  .source {
+    text-align: left;
+  }
+
+  a {
+    background-color: var(--bg-light);
+    color: var(--fg);
+    padding: 0.3em 0.4em;
+    border-radius: 4px;
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+
+    margin-bottom: 1em;
+    &:not(:last-child) {
+      margin-right: 0.2em;
+    }
+
+    &:hover {
+      color: var(--fg-dark);
+    }
+
+    .source-icon {
+      width: 24px;
+      padding-right: 0.2em;
+    }
+  }
+</style>
