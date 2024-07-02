@@ -8,5 +8,8 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://olai.dev",
   integrations: [mdx(), sitemap(), icon()],
+  // https://docs.astro.build/en/guides/markdown-content/#syntax-highlighting
+  markdown: {
+    syntaxHighlight: "prism",
+  },
 });
-
