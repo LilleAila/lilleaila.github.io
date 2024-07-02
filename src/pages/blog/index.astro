@@ -9,7 +9,7 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
-import { Icon } from "astro-icon/components";
+import PostTags from "../../components/PostTags.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
@@ -29,7 +29,7 @@ const posts = (await getCollection("blog")).sort(
         list-style-type: none;
         padding: 0;
 
-        li.post {
+        li {
           &:not(:first-child) {
             margin-top: 0.5em;
           }
@@ -55,25 +55,6 @@ const posts = (await getCollection("blog")).sort(
           }
         }
       }
-
-      // TODO: separate module for tags (remember to copy css from other ul)
-      ul.tags {
-        li {
-          color: var(--fg);
-          background-color: var(--bg-light);
-          display: inline-flex;
-          align-items: center;
-          margin: 0.1em;
-          padding: 0 0.3em;
-          border-radius: 4px;
-
-          .tag-icon {
-            width: 16px;
-            height: 16px;
-            padding-right: 0.2em;
-          }
-        }
-      }
     </style>
   </head>
   <body>
@@ -89,14 +70,7 @@ const posts = (await getCollection("blog")).sort(
                   <p class="date">
                     <FormattedDate date={post.data.pubDate} />
                   </p>
-                  <ul class="tags">
-                    {post.data.tags.map((tag) => (
-                      <li class="tag">
-                        <Icon name="tag" class="tag-icon" />
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
+                  <PostTags {...post.data} />
                 </a>
               </li>
             ))

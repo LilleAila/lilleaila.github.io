@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+const { tags } = Astro.props;
+---
+
+<ul {...Astro.props}>
+  {
+    tags.map((tag: string) => (
+      <li class="tag">
+        <Icon name="tag" class="tag-icon" />
+        {tag}
+      </li>
+    ))
+  }
+</ul>
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      &:not(:first-child) {
+        margin-left: 0.3em;
+      }
+
+      color: var(--fg);
+      background-color: var(--bg-light);
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4em;
+      border-radius: 4px;
+      line-height: 1;
+
+      .tag-icon {
+        width: 16px;
+        height: 16px;
+        padding-right: 0.2em;
+      }
+    }
+  }
+</style>
