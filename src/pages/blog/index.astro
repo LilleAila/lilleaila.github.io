@@ -20,13 +20,17 @@ import PostList from "../../components/PostList.astro";
       main {
         width: 960px;
       }
+
+      .post-list {
+        padding-left: 3em;
+      }
     </style>
   </head>
   <body>
     <Header />
     <main>
       <section>
-        <PostList collection="blog" />
+        <PostList collection="blog" class="post-list" />
       </section>
     </main>
     <Footer />

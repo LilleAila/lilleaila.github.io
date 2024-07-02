@@ -59,11 +59,10 @@ body {
 }
 
 main {
-  box-sizing: border-box;
   width: 720px;
   max-width: calc(100% - 2em);
   margin: auto;
-  padding: 2.5em 2em;
+  padding: 2.5em 1em;
 }
 
 h1,
