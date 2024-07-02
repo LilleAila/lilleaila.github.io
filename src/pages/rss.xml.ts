@@ -5,7 +5,12 @@ import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 
-export async function GET(context) {
+// I think there are in reality more values than this, but this is the only one used here
+type Context = {
+  site: string;
+};
+
+export async function GET(context: Context) {
   const blog = await getCollection("blog");
   const projects = await getCollection("projects");
   const posts = [...blog, ...projects];

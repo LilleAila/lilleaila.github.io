@@ -17,7 +17,8 @@ const { title, description } = Astro.props;
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!--<link rel="icon" type="image/svg+xml" href="/favicon.svg" />-->
+<link rel="icon" type="image/png" href="/favicon.png" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
@@ -34,6 +35,14 @@ const { title, description } = Astro.props;
   as="font"
   type="font/ttf"
   crossorigin
+/>
+
+<!-- RSS feed auto-discovery -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={title}
+  href={new URL("rss.xml", Astro.site)}
 />
 
 <!-- Canonical URL -->
