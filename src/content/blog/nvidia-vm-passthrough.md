@@ -51,7 +51,7 @@ for g in $(find /sys/kernel/iommu_groups/* -maxdepth 0 -type d | sort -V); do
 done;
 ```
 
-From the output of this script, locate your GPU. Ideally, you want your GPU to be the only item in its group. In my case, i was not so lucky. This was the relevant output when running the script on my conputer:
+From the output of this script, locate your GPU. Ideally, you want your GPU to be the only item in its group. In my case, i was not so lucky. This was the relevant output when running the script on my computer:
 
 ```
 IOMMU Group 2:
