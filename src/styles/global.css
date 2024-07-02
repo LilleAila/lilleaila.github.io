@@ -22,6 +22,7 @@
   --accent3: var(--base0D);
   --bg: var(--base00);
   --bg-light: var(--base01);
+  --fg-darker: var(--base03);
   --fg-dark: var(--base04);
   --fg: var(--base06);
   --fg-light: var(--base07);
@@ -61,7 +62,7 @@ main {
   width: 720px;
   max-width: calc(100% - 2em);
   margin: auto;
-  padding: 3em 1em;
+  padding: 2.5em 1em;
 }
 
 h1,
@@ -162,6 +163,10 @@ blockquote {
 hr {
   border: none;
   border-top: 1px solid var(--bg-light);
+}
+
+cite sup > a {
+  padding-left: 0.2em;
 }
 
 @media (max-width: 720px) {

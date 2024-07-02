@@ -1,8 +1,10 @@
 ---
-// TODO: re-write so that
+// TODO:
 // - Implement optional hero image
-// - Posts have a list of tags
-// - It is filterable (and possibly a way to search them)
+// - Tags are filterable (and possibly a way to search posts)
+// - Turn this into a re-usable component for
+//   - Showing recent posts on home
+//   - Creating a projects tab with the same functionality, plus some more things like an url and an image
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
@@ -12,7 +14,7 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import PostTags from "../../components/PostTags.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
