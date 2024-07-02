@@ -2,11 +2,19 @@
 import { getCollection } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
 import PostTags from "./PostTags.astro";
-const { collection, maxPosts } = Astro.props;
+import type { HTMLAttributes } from "astro/types";
+import type { CollectionKey } from "astro:content";
+
+interface Props extends HTMLAttributes<"ul"> {
+  collection: CollectionKey;
+  maxPosts?: number;
+}
+
+const { collection, maxPosts } = Astro.props as Props;
 
 const posts = (await getCollection(collection))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, maxPosts);
+  .slice(0, maxPosts); // slice to undefined returns full array
 ---
 
 <ul {...Astro.props}>
