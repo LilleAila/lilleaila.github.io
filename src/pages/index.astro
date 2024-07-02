@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import PostList from "../components/PostList.astro";
 ---
 
 <!doctype html>
@@ -34,9 +35,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
           ><b>software engineer</b></i
         > in the future.
       </p>
-      <h2>Latest blog posts (TODO)</h2>
+      <h2>Latest blog posts</h2>
+      <PostList collection="blog" maxPosts="3" class="postList" />
       <h2>Latest projects (TODO)</h2>
     </main>
     <Footer />
+    <style>
+      @media (min-width: 720px) {
+        .postList {
+          padding-left: 1.5em;
+        }
+      }
+    </style>
   </body>
 </html>
