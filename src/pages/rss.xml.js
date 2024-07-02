@@ -6,15 +6,20 @@ import MarkdownIt from "markdown-it";
 const parser = new MarkdownIt();
 
 export async function GET(context) {
-  const posts = await getCollection("blog");
+  const blog = await getCollection("blog");
+  const projects = await getCollection("projects");
+  const posts = [...blog, ...projects];
+  posts.sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+  );
   return rss({
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: context.site,
     items: posts.map((post) => ({
       ...post.data,
-      link: `/blog/${post.slug}/`,
-      //content: post.body,
+      link: `/${post.collection}/${post.slug}/`,
       content: sanitizeHtml(parser.render(post.body), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),
