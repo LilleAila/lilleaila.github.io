@@ -61,7 +61,7 @@ body {
 main {
   width: 720px;
   max-width: calc(100% - 2em);
-  margin: auto;
+  margin: auto 1em;
   padding: 2.5em 1em;
 }
 
@@ -175,6 +175,7 @@ cite sup > a {
   }
   main {
     padding: 1em;
+    margin: auto;
   }
 }
 
