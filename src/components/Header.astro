@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 import SocialLinks from "./SocialLinks.astro";
@@ -6,7 +7,10 @@ import SocialLinks from "./SocialLinks.astro";
 
 <header>
   <nav>
-    <h2><a href="/">{SITE_TITLE}</a></h2>
+    <div class="title-section">
+      <Image src="/favicon.png" alt="Logo" width="32" height="32" />
+      <h2><a href="/">{SITE_TITLE}</a></h2>
+    </div>
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
@@ -21,6 +25,13 @@ import SocialLinks from "./SocialLinks.astro";
     padding: 0 1em;
     background: var(--bg);
   }
+
+  .title-section {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+
   h2 {
     margin: 0;
     font-size: 1em;
@@ -30,11 +41,13 @@ import SocialLinks from "./SocialLinks.astro";
   h2 a.active {
     text-decoration: none;
   }
+
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   nav a {
     padding: 0.3em 0.6em;
     color: var(--white-dark);
@@ -42,10 +55,12 @@ import SocialLinks from "./SocialLinks.astro";
     border-top: 4px solid transparent;
     text-decoration: none;
   }
+
   nav a.active {
     text-decoration: none;
     border-top-color: var(--accent);
   }
+
   .social-links {
     display: flex;
     gap: 0.6em;
