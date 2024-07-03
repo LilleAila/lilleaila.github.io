@@ -83,8 +83,8 @@ Run the following commands to move the changes to the correct place:
 
 ```bash
 git branch the-new-branch
-git reset origin/master
-git checkout then-new-branch
+git reset origin/master --hard
+git checkout the-new-branch
 ```
 
 ## Testing your changes
