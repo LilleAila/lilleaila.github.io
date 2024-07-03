@@ -35,7 +35,7 @@ git remote add upstream https://github.com/nix-community/home-manager
 , then fetch the upstream remote with
 
 ```bash
-git fetch upstream
+git fetch --depth=1 upstream
 ```
 
 ## Set up your development environment
