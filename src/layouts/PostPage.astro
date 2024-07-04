@@ -1,0 +1,45 @@
+---
+// TODO:
+// - Implement optional hero image
+// - Tags are filterable (and possibly a way to search posts)
+// - Rename the collection prop to be called something like filter where it filters by tags, all in the same collection instead of separating different types of stuff into different collections.
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import PostList from "../components/PostList.astro";
+import type { CollectionKey } from "astro:content";
+
+interface Props {
+  collection: CollectionKey,
+};
+
+const { collection } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      main {
+        width: 960px;
+      }
+
+      @media (min-width: 720px) {
+        .post-list {
+          padding-left: 3em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section>
+        <PostList collection={collection} class="post-list" />
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,37 +1,5 @@
 ---
-// TODO:
-// - Implement optional hero image
-// - Tags are filterable (and possibly a way to search posts)
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
-import PostList from "../../components/PostList.astro";
+import PostPage from "../../layouts/PostPage.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      main {
-        width: 960px;
-      }
-
-      @media (min-width: 720px) {
-        .post-list {
-          padding-left: 3em;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <PostList collection="projects" class="post-list" />
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<PostPage collection="projects" />
