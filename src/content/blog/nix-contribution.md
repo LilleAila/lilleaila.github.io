@@ -3,8 +3,8 @@ title: "Contributing to nixpkgs and home-manager"
 description: "A short guide for how to contribute something to nixpkgs or home-manager"
 pubDate: "2024-07-01"
 tags:
-  - Nix
   - Tutorial
+  - Nix
 ---
 
 This is just a short guide for setting up a development environment. Make sure to also read the contribution guidelines of [nixpkgs](https://github.com/NixOS/nixpkgs/blob/master/CONTRIBUTING.md) and [home-manager](https://nix-community.github.io/home-manager/index.xhtml#ch-contributing)
