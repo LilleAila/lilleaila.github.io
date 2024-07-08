@@ -2,12 +2,17 @@
 title: "Setting up a virtual machine with GPU passthrough"
 description: "A guide for configuring NixOS with nvidia GPU passthrough to a virtual machine in virt-manager."
 pubDate: "2024-07-02"
+updatedDate: "2024-07-08"
 tags:
   - Tutorial
   - NixOS
 ---
 
 In this guide, I will show you how to configure a virtual machine on NixOS, with good performance and passing through a discrete nvidia gpu in a dual gpu system.
+
+## If you're using a single gpu
+
+I won't go very in depth about how to set it up, but you'd want to create a hook script in `virtualisation.libvirtd.hooks` that binds the gpu driver to vfio and re-binds it to the gpu drivers when the vm shuts down. You would want to set the video model to `none` in the VM settings, pass through the GPU with `add hardware`, and also pass through USB devices such as your keyboard and mouse. [This](https://github.com/QaidVoid/Complete-Single-GPU-Passthrough) is a very good guide that could easily be adapted to work on NixOS.
 
 ## Configuring your system
 
