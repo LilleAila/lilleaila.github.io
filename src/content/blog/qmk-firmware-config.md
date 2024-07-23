@@ -54,6 +54,8 @@ git merge upstream/master
 git push
 ```
 
+If you run into problems when compiling, you might have to run `qmk setup` again.
+
 ## Compiling and flashing a keyboard
 
 Use the `qmk` command to compile a keymap for your keyboard. Replace `beekeeb/piantor_pro` with your keyboard, and `default` with your keymap.
