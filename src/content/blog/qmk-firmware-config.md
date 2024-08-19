@@ -8,7 +8,7 @@ tags:
   - Keyboards
 ---
 
-Configuring QMK on linux is very easy, especially on NixOS. Here is a short guide showing the steps required to do so. As always, it's a good idea to read [the documentation](https://docs.qmk.fm/). This is just some of the snippets i found the most useful and a quick-start guide.
+Configuring QMK on linux is very easy, especially on NixOS. Here is a short guide showing the steps required to do so. As always, it's a good idea to read [the documentation](https://docs.qmk.fm/). This is just some of the snippets I found the most useful and a quick-start guide.
 
 ## Creating a fork
 
